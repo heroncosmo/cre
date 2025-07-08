@@ -14,10 +14,12 @@ import { PerformanceSection } from '../components/PerformanceSection';
 import { SpeedSection } from '../components/SpeedSection';
 import { FinalCTASection } from '../components/FinalCTASection';
 import { Footer } from '../components/Footer';
+import { Header } from '../components/Header';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Header />
       <HeroSection />
       <UrgencySection />
       <SocialProofSection />
