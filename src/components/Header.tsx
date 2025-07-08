@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const Header = () => {
@@ -19,21 +19,16 @@ export const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Simplified */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Hospedagem</a>
             <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Domínios</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Email</a>
             <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">WordPress</a>
             <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Suporte</a>
           </nav>
 
-          {/* Contact Info & Login */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <Phone className="w-4 h-4" />
-              <span>0800 123 4567</span>
-            </div>
+          {/* Login only */}
+          <div className="hidden md:flex items-center">
             <Button variant="outline" size="sm">
               Login
             </Button>
@@ -57,13 +52,8 @@ export const Header = () => {
             <nav className="flex flex-col space-y-4">
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Hospedagem</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Domínios</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Email</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">WordPress</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Suporte</a>
-              <div className="flex items-center space-x-2 text-sm text-gray-600 pt-2">
-                <Phone className="w-4 h-4" />
-                <span>0800 123 4567</span>
-              </div>
               <Button variant="outline" size="sm" className="w-fit">
                 Login
               </Button>

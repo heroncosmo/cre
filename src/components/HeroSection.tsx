@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from './ui/button';
-import { Check, Shield, Zap, Clock, MessageCircle } from 'lucide-react';
+import { Check, Shield, MessageCircle } from 'lucide-react';
 
 export const HeroSection = () => {
   return (
@@ -18,7 +18,7 @@ export const HeroSection = () => {
             {/* Main Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Crie <span className="text-blue-600">sua landing page</span><br />
+                Crie <span className="text-blue-600">seu site</span><br />
                 WordPress com<br />
                 <span className="text-gray-800">IA em minutos</span>
               </h1>
@@ -40,8 +40,8 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            {/* Pricing */}
-            <div className="space-y-2">
+            {/* Pricing - Centralized */}
+            <div className="text-center md:text-left space-y-2">
               <div className="text-gray-600">a partir de</div>
               <div className="text-4xl font-bold text-gray-900">
                 R$ 7,79<span className="text-xl text-gray-600">/mês*</span>
@@ -51,11 +51,11 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            {/* CTA Button */}
-            <div className="space-y-4">
+            {/* CTA Button - Centralized */}
+            <div className="flex flex-col items-center md:items-start space-y-4">
               <Button 
                 size="lg" 
-                className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-12 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full md:w-auto"
               >
                 Ver planos
               </Button>
@@ -114,14 +114,6 @@ export const HeroSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -left-4 bg-white p-3 rounded-lg shadow-lg">
-              <Zap className="w-6 h-6 text-yellow-500" />
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-white p-3 rounded-lg shadow-lg">
-              <Clock className="w-6 h-6 text-green-500" />
             </div>
           </div>
         </div>
