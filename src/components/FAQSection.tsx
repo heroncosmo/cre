@@ -82,7 +82,7 @@ export const FAQSection = () => {
           <div className="relative opacity-100 scale-100">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="/images/paginainicial2.png" 
+                src="/images/paginainicial6.png" 
                 alt="Especialista atendendo dúvidas sobre hospedagem" 
                 className="w-full h-auto object-cover"
               />
