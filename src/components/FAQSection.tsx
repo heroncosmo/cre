@@ -60,6 +60,20 @@ export const FAQSection = () => {
     );
   };
 
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const openWhatsApp = () => {
+    const phone = '17981679818';
+    const message = 'Olá! Gostaria de saber mais sobre os planos de hospedagem e criador de sites com IA.';
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section id="faq" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -111,10 +125,16 @@ export const FAQSection = () => {
               Ainda tem dúvidas? Nossa equipe está pronta para ajudar!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+              <button 
+                onClick={openWhatsApp}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+              >
                 Falar com Especialista
               </button>
-              <button className="border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+              <button 
+                onClick={scrollToPricing}
+                className="border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+              >
                 Ver Todos os Recursos
               </button>
             </div>
