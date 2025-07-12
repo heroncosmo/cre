@@ -75,68 +75,95 @@ export const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-gray-50">
+    <section id="faq" className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tighter">
-            Perguntas Frequentes
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Tire suas dúvidas sobre nossos serviços de hospedagem e criador de sites com IA
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-4">
-            {faqData.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
-              >
-                <button
-                  onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-                >
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                    {item.question}
-                  </h3>
-                  {openItems.includes(index) ? (
-                    <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                  )}
-                </button>
-                
-                {openItems.includes(index) && (
-                  <div className="px-6 pb-5">
-                    <div className="border-t border-gray-100 pt-4">
-                      <p className="text-gray-600 leading-relaxed">
-                        {item.answer}
-                      </p>
-                    </div>
-                  </div>
-                )}
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Imagem com texto sobreposto */}
+          <div className="relative opacity-100 scale-100">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="/images/paginainicial2.png" 
+                alt="Especialista atendendo dúvidas sobre hospedagem" 
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute bottom-8 left-8 right-8 p-6 rounded-xl bg-black/30 backdrop-blur-lg border border-white/20 shadow-lg">
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  Tire Todas as Suas Dúvidas
+                </h3>
+                <p className="text-white/90 font-medium">
+                  Nossa equipe de especialistas está pronta para responder todas as suas perguntas sobre hospedagem e criação de sites.
+                </p>
               </div>
-            ))}
+            </div>
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
-              Ainda tem dúvidas? Nossa equipe está pronta para ajudar!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={openWhatsApp}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
-              >
-                Falar com Especialista
-              </button>
-              <button 
-                onClick={scrollToPricing}
-                className="border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
-              >
-                Ver Todos os Recursos
-              </button>
+          {/* Conteúdo FAQ */}
+          <div className="space-y-8 opacity-100 translate-y-0">
+            <div className="text-left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-12 h-12 text-blue-600 mb-4">
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 17h.01"></path>
+              </svg>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tighter">
+                Perguntas Frequentes
+              </h2>
+              <p className="text-gray-600 text-lg max-w-xl leading-relaxed mb-6">
+                Tire suas dúvidas sobre nossos serviços de hospedagem e criador de sites com IA. Aqui você encontra as respostas para as principais perguntas.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {faqData.slice(0, 5).map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
+                >
+                  <button
+                    onClick={() => toggleItem(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                      {item.question}
+                    </h3>
+                    {openItems.includes(index) ? (
+                      <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    )}
+                  </button>
+                  
+                  {openItems.includes(index) && (
+                    <div className="px-6 pb-5">
+                      <div className="border-t border-gray-100 pt-4">
+                        <p className="text-gray-600 leading-relaxed">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <p className="text-gray-600 mb-6">
+                Ainda tem dúvidas? Nossa equipe está pronta para ajudar!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={openWhatsApp}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                >
+                  Falar com Especialista
+                </button>
+                <button 
+                  onClick={scrollToPricing}
+                  className="border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                >
+                  Ver Todos os Recursos
+                </button>
+              </div>
             </div>
           </div>
         </div>
