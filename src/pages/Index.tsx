@@ -8,6 +8,7 @@ import { FeaturesSection } from '../components/FeaturesSection';
 import { SolutionsSection } from '../components/SolutionsSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { GuaranteeSection } from '../components/GuaranteeSection';
+import { FAQSection } from '../components/FAQSection';
 import { SupportSection } from '../components/SupportSection';
 import { PerformanceSection } from '../components/PerformanceSection';
 import { SpeedSection } from '../components/SpeedSection';
@@ -27,6 +28,7 @@ const Index = () => {
         <SolutionsSection />
         <TestimonialsSection />
         <GuaranteeSection />
+        <FAQSection />
         <SupportSection />
         <PerformanceSection />
         <SpeedSection />
