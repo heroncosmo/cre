@@ -81,7 +81,7 @@ export const HeroSection = () => {
                 </Button>
                 <div className="text-left">
                   <p className="text-gray-600 text-sm">
-                    A partir de <span className="text-xl font-bold text-blue-600">R$ 7,79/mês*</span>
+                    A partir de <span className="text-xl font-bold text-blue-600">R$ 6,77/mês*</span>
                   </p>
                   <p className="text-xs text-gray-500">
                     + 2 Domínios Grátis no plano anual
