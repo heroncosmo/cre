@@ -69,7 +69,7 @@ export const FAQSection = () => {
 
   const openWhatsApp = () => {
     const phone = '17981679818';
-    const message = 'Olá! Gostaria de saber mais sobre os planos de hospedagem e criador de sites com IA.';
+    const message = 'Olá! Gostaria de falar com um especialista sobre os planos de hospedagem.';
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
