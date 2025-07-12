@@ -1,7 +1,6 @@
-
 import React from 'react';
+import { Header } from '../components/Header';
 import { HeroSection } from '../components/HeroSection';
-import { UrgencySection } from '../components/UrgencySection';
 import { SocialProofSection } from '../components/SocialProofSection';
 import { PricingSection } from '../components/PricingSection';
 import { ComparisonSection } from '../components/ComparisonSection';
@@ -14,26 +13,26 @@ import { PerformanceSection } from '../components/PerformanceSection';
 import { SpeedSection } from '../components/SpeedSection';
 import { FinalCTASection } from '../components/FinalCTASection';
 import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <HeroSection />
-      <UrgencySection />
-      <SocialProofSection />
-      <PricingSection />
-      <ComparisonSection />
-      <FeaturesSection />
-      <SolutionsSection />
-      <TestimonialsSection />
-      <GuaranteeSection />
-      <SupportSection />
-      <PerformanceSection />
-      <SpeedSection />
-      <FinalCTASection />
-      <Footer />
+    <div className="min-h-screen bg-white flex flex-col items-center">
+      <div className="w-full max-w-7xl">
+        <Header />
+        <HeroSection />
+        <PricingSection />
+        <ComparisonSection />
+        <SocialProofSection />
+        <FeaturesSection />
+        <SolutionsSection />
+        <TestimonialsSection />
+        <GuaranteeSection />
+        <SupportSection />
+        <PerformanceSection />
+        <SpeedSection />
+        <FinalCTASection />
+        <Footer />
+      </div>
     </div>
   );
 };

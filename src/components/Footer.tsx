@@ -1,59 +1,71 @@
 
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, MessageCircle, ArrowUp } from 'lucide-react';
 
 export const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/5517981679818', '_blank');
+  };
+
   const footerSections = [
+    {
+      title: 'Navegação',
+      links: [
+        { name: 'Início', action: () => scrollToSection('home') },
+        { name: 'Preços', action: () => scrollToSection('pricing') },
+        { name: 'Números', action: () => scrollToSection('social-proof') },
+        { name: 'Recursos', action: () => scrollToSection('features') },
+        { name: 'Soluções', action: () => scrollToSection('solutions') },
+        { name: 'Comparativo', action: () => scrollToSection('comparison') },
+        { name: 'Depoimentos', action: () => scrollToSection('testimonials') },
+        { name: 'Garantia', action: () => scrollToSection('guarantee') }
+      ]
+    },
     {
       title: 'Produtos',
       links: [
-        'Hospedagem de Sites',
-        'Hospedagem WordPress',
-        'Hospedagem VPS',
-        'Servidores Dedicados',
-        'Registro de Domínios',
-        'Certificados SSL',
-        'Email Profissional',
-        'Construtor de Sites'
+        { name: 'Criação de Site com IA', action: () => scrollToSection('pricing') },
+        { name: 'Site Profissional', action: () => scrollToSection('pricing') },
+        { name: 'Loja Virtual', action: () => scrollToSection('pricing') },
+        { name: 'Blog', action: () => scrollToSection('pricing') },
+        { name: 'Portfólio', action: () => scrollToSection('pricing') },
+        { name: 'Site Institucional', action: () => scrollToSection('pricing') },
+        { name: 'Landing Page', action: () => scrollToSection('pricing') },
+        { name: 'Site para Empresa', action: () => scrollToSection('pricing') },
+        { name: 'Site para Influencer', action: () => scrollToSection('pricing') }
       ]
     },
     {
       title: 'Suporte',
       links: [
-        'Central de Ajuda',
-        'Tutoriais',
-        'Status dos Serviços',
-        'Contato',
-        'Chat ao Vivo',
-        'Abrir Ticket',
-        'Base de Conhecimento',
-        'Webinars'
+        { name: 'WhatsApp Suporte', action: openWhatsApp },
+        { name: 'Chat ao Vivo', action: openWhatsApp },
+        { name: 'Central de Ajuda', action: openWhatsApp },
+        { name: 'Tutoriais', action: openWhatsApp },
+        { name: 'Status dos Serviços', action: openWhatsApp },
+        { name: 'Abrir Ticket', action: openWhatsApp },
+        { name: 'Base de Conhecimento', action: openWhatsApp },
+        { name: 'Webinars', action: openWhatsApp }
       ]
     },
     {
       title: 'Empresa',
       links: [
-        'Sobre a Place',
-        'Carreiras',
-        'Imprensa',
-        'Parceiros',
-        'Afiliados',
-        'Responsabilidade Social',
-        'Programa de Indicação',
-        'Certificações'
-      ]
-    },
-    {
-      title: 'Legal',
-      links: [
-        'Termos de Uso',
-        'Política de Privacidade',
-        'SLA',
-        'Política de Reembolso',
-        'LGPD',
-        'Código de Conduta',
-        'Relatório de Transparência',
-        'Política de Cookies'
+        { name: 'Sobre a Place', action: () => scrollToSection('home') },
+        { name: 'Performance', action: () => scrollToSection('performance') },
+        { name: 'Velocidade', action: () => scrollToSection('speed') },
+        { name: 'Começar Agora', action: () => scrollToSection('cta') },
+        { name: 'Suporte Especializado', action: () => scrollToSection('support') },
+        { name: 'Nossa Tecnologia', action: () => scrollToSection('features') },
+        { name: 'Cases de Sucesso', action: () => scrollToSection('testimonials') },
+        { name: 'Compromisso de Qualidade', action: () => scrollToSection('guarantee') }
       ]
     }
   ];
@@ -70,14 +82,14 @@ export const Footer = () => {
             </div>
             <p className="text-gray-400 leading-relaxed">
               Transformando ideias em negócios de sucesso online há mais de 15 anos. 
-              Hospedagem confiável, suporte especializado.
+              Criação de sites profissionais com IA.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-400">
                 <Phone className="w-4 h-4" />
-                <span>0800 123 4567</span>
+                <span>(17) 98167-9818</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
                 <Mail className="w-4 h-4" />
@@ -87,6 +99,17 @@ export const Footer = () => {
                 <MapPin className="w-4 h-4" />
                 <span>São Paulo, Brasil</span>
               </div>
+            </div>
+
+            {/* WhatsApp Support Button */}
+            <div className="pt-4">
+              <button
+                onClick={openWhatsApp}
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center justify-center space-x-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>Falar no WhatsApp</span>
+              </button>
             </div>
 
             {/* Social Media */}
@@ -113,12 +136,12 @@ export const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    <button
+                      onClick={link.action}
+                      className="text-gray-400 hover:text-white transition-colors text-sm text-left w-full"
                     >
-                      {link}
-                    </a>
+                      {link.name}
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -132,20 +155,19 @@ export const Footer = () => {
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div>
                 <h3 className="text-2xl font-bold mb-2">
-                  Fique por dentro das novidades
+                  Quer criar seu site profissional?
                 </h3>
                 <p className="text-blue-100">
-                  Receba dicas exclusivas, promoções e updates sobre hospedagem web
+                  Fale conosco no WhatsApp e vamos criar seu site em minutos!
                 </p>
               </div>
               <div className="flex space-x-3">
-                <input
-                  type="email"
-                  placeholder="Seu melhor email"
-                  className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                />
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg transition-colors">
-                  Assinar
+                <button 
+                  onClick={openWhatsApp}
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center justify-center space-x-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Falar no WhatsApp</span>
                 </button>
               </div>
             </div>
@@ -173,6 +195,15 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Back to Top Button */}
+      <button
+        onClick={() => scrollToSection('home')}
+        className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        aria-label="Voltar ao topo"
+      >
+        <ArrowUp className="w-6 h-6" />
+      </button>
     </footer>
   );
 };

@@ -1,8 +1,12 @@
 
 import React from 'react';
 import { Shield, Zap, Globe, HeadphonesIcon, Database, Lock } from 'lucide-react';
+import { cn } from '../lib/utils';
 
 export const FeaturesSection = () => {
+  // Remover uso do hook useInView
+  // const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+
   const features = [
     {
       icon: <Shield className="w-8 h-8 text-green-500" />,
@@ -37,12 +41,12 @@ export const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section id="features" className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Soluções para potencializar seu projeto
+        <div className={cn("text-center mb-16 opacity-100 translate-y-0")}> 
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tighter">
+            Soluções para Potencializar seu Projeto
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Recursos premium inclusos em todos os planos para garantir que seu site tenha 
@@ -50,52 +54,46 @@ export const FeaturesSection = () => {
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 p-3 bg-gray-50 rounded-lg">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className={cn("opacity-100 translate-y-0")}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 p-3 bg-gray-50 rounded-lg">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              HostGator tem tudo para você começar a crescer
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Seja seu primeiro site ou centésimo projeto, oferecemos tudo que você precisa 
-              para ter sucesso online com confiança e tranquilidade.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>99.9% Uptime</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>Suporte Especializado</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-700">
-                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                <span>30 Dias de Garantia</span>
+          {/* Technology Image with Frosted Glass Effect */}
+          <div className={cn("relative opacity-100 scale-100")}> 
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&h=1000&fit=crop"
+                alt="Empreendedora celebrando o sucesso de sua loja online"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute bottom-8 left-8 right-8 p-6 rounded-xl bg-white/50 backdrop-blur-lg border border-white/20 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Construa seu Futuro Digital
+                </h3>
+                <p className="text-gray-800 font-medium">
+                  Ferramentas poderosas e intuitivas para transformar suas ideias em realidade.
+                </p>
               </div>
             </div>
           </div>

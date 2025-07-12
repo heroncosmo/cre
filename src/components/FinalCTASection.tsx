@@ -1,11 +1,13 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { ArrowRight, Star, Shield, Zap, HeadphonesIcon } from 'lucide-react';
 
 export const FinalCTASection = () => {
+  const navigate = useNavigate();
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700">
+    <section id="cta" className="py-16 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-8">
           {/* Main Headline */}
@@ -21,7 +23,7 @@ export const FinalCTASection = () => {
             </h2>
             
             <p className="text-blue-100 text-xl max-w-3xl mx-auto leading-relaxed">
-              Junte-se a mais de 50.000 empreendedores que escolheram a Place 
+              Junte-se a mais de 52.847 empreendedores que escolheram a Place 
               para transformar suas ideias em negócios de sucesso online.
             </p>
           </div>
@@ -71,8 +73,12 @@ export const FinalCTASection = () => {
             <Button 
               size="lg"
               className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-12 py-6 text-xl rounded-lg shadow-xl hover:shadow-2xl transition-all duration-200 group"
+              onClick={() => {
+                const pricingSection = document.getElementById('pricing');
+                pricingSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
-              Começar Agora - 74% OFF
+              Selecionar Plano - 74% OFF
               <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
             </Button>
             

@@ -10,7 +10,7 @@ export const TestimonialsSection = () => {
       company: 'Loja da Maria',
       content: 'Migrei minha loja para a Place e os resultados foram incríveis. O site ficou 3x mais rápido e as vendas aumentaram 40%. Suporte sempre disponível!',
       rating: 5,
-      avatar: '/api/placeholder/60/60'
+      avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=120&h=120&fit=crop&crop=face'
     },
     {
       name: 'João Santos',
@@ -18,7 +18,7 @@ export const TestimonialsSection = () => {
       company: 'TechSolutions',
       content: 'Como desenvolvedor, preciso de performance e confiabilidade. A Place oferece exatamente isso. Uptime perfeito e velocidade excepcional.',
       rating: 5,
-      avatar: '/api/placeholder/60/60'
+      avatar: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=120&h=120&fit=crop&crop=face'
     },
     {
       name: 'Ana Costa',
@@ -26,15 +26,53 @@ export const TestimonialsSection = () => {
       company: 'Blog da Ana',
       content: 'Comecei do zero e a Place me ajudou em cada passo. O construtor de sites é fantástico e consegui criar um blog profissional em minutos.',
       rating: 5,
-      avatar: '/api/placeholder/60/60' 
+      avatar: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=120&h=120&fit=crop&crop=face'
     }
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Header */}
+    <section id="testimonials" className="py-16 bg-white relative overflow-hidden">
+      {/* Background com pessoas trabalhando */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5">
+        <img 
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop"
+          alt="Pessoas trabalhando felizes"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header com foto de pessoas satisfeitas */}
         <div className="text-center mb-12">
+          <div className="flex justify-center items-center gap-4 mb-6">
+            <div className="flex -space-x-3">
+              <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&crop=face"
+                alt="Cliente satisfeita"
+                className="w-12 h-12 rounded-full border-3 border-white shadow-lg"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&h=60&fit=crop&crop=face"
+                alt="Cliente satisfeito"
+                className="w-12 h-12 rounded-full border-3 border-white shadow-lg"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&h=60&fit=crop&crop=face"
+                alt="Cliente satisfeita"
+                className="w-12 h-12 rounded-full border-3 border-white shadow-lg"
+              />
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-gray-800">+52.847 clientes satisfeitos</p>
+              <div className="flex items-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
+                <span className="text-xs text-gray-600 ml-1">4.9/5</span>
+              </div>
+            </div>
+          </div>
+          
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Veja o que o mercado fala da Place
           </h2>
@@ -63,12 +101,18 @@ export const TestimonialsSection = () => {
                 ))}
               </div>
 
-              {/* Author */}
+              {/* Author with real photo */}
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold text-lg">
-                    {testimonial.name.charAt(0)}
-                  </span>
+                <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg">
+                  <img 
+                    src={testimonial.avatar}
+                    alt={`${testimonial.name} - cliente satisfeito`}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='28' fill='%2334D399'/%3E%3Ctext x='28' y='34' text-anchor='middle' font-size='20' fill='white' font-weight='bold'%3E${testimonial.name.charAt(0)}%3C/text%3E%3C/svg%3E`;
+                    }}
+                  />
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">{testimonial.name}</div>
@@ -81,8 +125,18 @@ export const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* Trust Indicators */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+        {/* Trust Indicators with Team Photo */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 relative overflow-hidden">
+          {/* Foto da equipe no fundo */}
+          <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
+            <img 
+              src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&h=300&fit=crop"
+              alt="Equipe de suporte feliz"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          <div className="relative z-10">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Escale seus resultados com a Place
@@ -103,7 +157,7 @@ export const TestimonialsSection = () => {
               </div>
             </div>
             <div className="space-y-2">
-              <div className="text-2xl font-bold text-green-600">+50K</div>
+              <div className="text-2xl font-bold text-green-600">+52.8K</div>
               <div className="text-gray-600 text-sm">Clientes satisfeitos</div>
             </div>
             <div className="space-y-2">
@@ -113,6 +167,7 @@ export const TestimonialsSection = () => {
             <div className="space-y-2">
               <div className="text-2xl font-bold text-orange-600">24/7</div>
               <div className="text-gray-600 text-sm">Suporte dedicado</div>
+              </div>
             </div>
           </div>
         </div>

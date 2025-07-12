@@ -4,8 +4,15 @@ import { Button } from './ui/button';
 import { ArrowRight, Clock, Zap, TrendingUp } from 'lucide-react';
 
 export const SpeedSection = () => {
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="py-16 bg-gradient-to-br from-green-50 to-emerald-100">
+    <section id="speed" className="py-16 bg-gradient-to-br from-green-50 to-emerald-100">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -32,7 +39,7 @@ export const SpeedSection = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-700">Instalação WordPress em 1 clique</span>
+                <span className="text-gray-700">Criação de site com IA em minutos</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -48,6 +55,7 @@ export const SpeedSection = () => {
               <Button 
                 size="lg"
                 className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group"
+                onClick={scrollToPricing}
               >
                 Começar Agora
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
