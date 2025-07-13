@@ -77,7 +77,7 @@ export const HeroSection = () => {
                     pricingSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Aproveitar Oferta
+                  Ver planos
                 </Button>
                 <div className="text-left">
                   <p className="text-gray-600 text-sm">
