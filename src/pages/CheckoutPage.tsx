@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Check, CreditCard, Smartphone, Lock, User, Mail, Phone, Calendar, Shield } from 'lucide-react';
+import { ProcessingMessage } from '../components/ProcessingMessage';
+import { saveCheckoutData } from '../lib/supabase';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -27,6 +29,8 @@ export const CheckoutPage = () => {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [showProcessingMessage, setShowProcessingMessage] = useState(false);
 
   const currentPlan = plans.find(plan => plan.key === planName);
   const planOption = currentPlan?.options.find(opt => opt.period === period);
@@ -65,8 +69,30 @@ export const CheckoutPage = () => {
 
   const handleSubmit = () => {
     if (validateForm()) {
-      // Processar pagamento
-      console.log('Processando pagamento...', { paymentMethod, formData });
+      setIsProcessing(true);
+      setShowProcessingMessage(true);
+
+      const checkoutData = {
+        nome: formData.name,
+        email: formData.email,
+        telefone: formData.phone,
+        plano: currentPlan.name,
+        periodo: planOption.period,
+        forma_pagamento: paymentMethod,
+        valor: Number(planOption.totalPrice.replace(',', '.')),
+        outros: formData
+      };
+
+saveCheckoutData(checkoutData)
+        .then(() => {
+          console.info('Dados do checkout salvos com sucesso');
+        })
+        .catch((error) => {
+          console.error('Erro ao salvar dados:', error);
+        })
+        .finally(() => {
+          setIsProcessing(false);
+        });
     }
   };
 
@@ -523,6 +549,16 @@ export const CheckoutPage = () => {
 
       {/* Mobile Spacer */}
       <div className="lg:hidden h-32"></div>
+      
+      {/* Processing Message */}
+      {showProcessingMessage && (
+        <ProcessingMessage 
+          paymentMethod={paymentMethod}
+          onWhatsAppClick={() => {
+            window.open('https://wa.me/5517981679818', '_blank')
+          }}
+        />
+      )}
     </div>
   );
 };

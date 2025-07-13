@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PlanSelectionPage from "./pages/PlanSelectionPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import CheckoutUsersPage from "./pages/CheckoutUsersPage";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/planos/:planName" element={<PlanSelectionPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/checkout-users" element={<CheckoutUsersPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
